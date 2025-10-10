@@ -1,8 +1,12 @@
 name: Playwright E2E Tests
 
 on:
-  - pull_request
-  - workflow_dispatch
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix-e2e-test
+      - dev
 
 jobs:
   e2e-test:
@@ -42,5 +46,6 @@ jobs:
             sleep 3
           done'
           echo "Backend Services are ready!"
+          docker compose ps
       - name: Run E2E tests
         run: pnpm test:e2e
