@@ -44,6 +44,8 @@ jobs:
             echo "Backend Services are starting..."
             sleep 3
           done'
+          echo "Backend port is open, sleeping 10 more seconds to ensure initialization..."
+          sleep 10
           echo "Backend Services are ready!"
           cd template/nestJs && docker compose ps
       - name: Run E2E tests

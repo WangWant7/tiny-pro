@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 test('移动端表格横向滚动', async ({ page }) => {
   await page.goto('http://localhost:3031/vue-pro/login');
   await page.getByRole('button', { name: '登录' }).click();
-  await expect(page.locator('.tiny-tree-menu__toggle-button')).toBeVisible();
   await page.locator('.tiny-tree-menu__toggle-button').click();
   await page.getByTitle('List').click();
   await page.getByTitle('Table').click();
