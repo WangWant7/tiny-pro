@@ -39,7 +39,8 @@ jobs:
       - name: Wait for Backend Services
         run: |
           echo "Waiting for Backend Services to start..."
-          timeout 120s bash -c 'until curl -f http://localhost:3000/health 2>/dev/null; do
+          cd template/nestJs
+          timeout 120s bash -c 'until curl -f http://localhost:3000/healthCheck 2>/dev/null; do
             echo "Backend API not ready yet..."
             sleep 3
           done'
